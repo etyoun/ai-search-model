@@ -1,0 +1,52 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+env/
+*.env
+
+# Logs and databases
+*.log
+*.sqlite3
+*.db
+
+# Compiled Python files
+*.pyc
+
+# Environment variable files
+.env
+
+# Local development settings
+local_settings.py
+
+# IDE settings
+.idea/
+.vscode/
+
+# Dependency directories
+lib/
+lib64/
+dist/
+build/
+bin/
+
+# Distribution/installation directories
+*.egg-info/
+*.egg/
+dist/
+build/
+bin/
+parts/
+var/
+sdist/
+develop-eggs/
+.installed.cfg
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+.DS_Store
