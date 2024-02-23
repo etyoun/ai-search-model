@@ -5,42 +5,39 @@ class Node():
         self.action = action
 
 
-class Frontier:
+class StackFrontier():
+    """
+    A stack-based frontier.
+    """
     def __init__(self):
         self.frontier = []
 
     def add(self, node):
-        """Appends a node to the frontier."""
         self.frontier.append(node)
 
     def contains_state(self, state):
-        """Returns True if the state is in the frontier."""
-        for node in self.frontier:
-            if node.state == state:
-                return True
-        return False
+        return any(node.state == state for node in self.frontier)
 
     def empty(self):
-        """Returns True if the frontier is empty."""
         return len(self.frontier) == 0
 
     def remove(self):
-        """Removes and returns the first node in the frontier."""
-        raise NotImplementedError
-
-
-class StackFrontier(Frontier):
-    def remove(self):
-        """Removes and returns the first node in the frontier."""
         if self.empty():
             raise Exception("empty frontier")
         else:
-            return self.frontier.pop(0)
+            node = self.frontier[-1]
+            self.frontier = self.frontier[:-1]
+            return node
 
 
-class QueueFrontier(Frontier):
+class QueueFrontier(StackFrontier):
+    """
+    A queue-based frontier.
+    """
     def remove(self):
         if self.empty():
             raise Exception("empty frontier")
         else:
-            return self.frontier.pop(0)
+            node = self.frontier[0]
+            self.frontier = self.frontier[1:]
+            return node
